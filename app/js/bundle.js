@@ -9852,24 +9852,34 @@ var _jquery = require('jquery');
 var _jquery2 = _interopRequireDefault(_jquery);
 
 var token = 'ca1d7249459344a30f833b3bc59fc9ba';
-var url = 'https://api.soundcloud.com/tracks?client_id=' + token + "&limit=15&q=beatles";
+// var url = 'https://api.soundcloud.com/tracks?client_id=' + token + "&limit=15&q=beatles";
+var url = 'https://api.soundcloud.com/tracks?client_id=ca1d7249459344a30f833b3bc59fc9ba&limit=15&q=beatles';
 
-_jquery2['default'].getJSON(url).then(function (res) {
-  res.forEach(function (track) {
+var container = (0, _jquery2['default'])('.container');
 
-    var htmlBlock = trackTemplate(track);
+_jquery2['default'].getJSON(url).then(function (response) {
+  response.forEach(function (track) {
 
-    (0, _jquery2['default'])('.contianter').append(htmlBlock);
+    // var htmlBlock = trackTemplate(track);
+    //
+    // $('.container').append(htmlBlock);
   });
-  console.log(res);
+  console.log(response);
 });
 
-function trackTemplate(track) {
-
-  if (track.artwork_url === null) track.artowrk_url = 'http://placehold.it.100x200';
-
-  return '\n  <li><img src="' + track.artwork_url + '"><h4>' + track.title + '</h4></li>\n\n\n<audio controls=\'controls\'src="' + track.stream_url + '?client_id=?{token}"></audio>\n\n\n\n  ';
-};
+// function trackTemplate(track) {
+//
+//   if (track.artwork_url=== null)
+//     track.artwork_url = 'http://placehold.it/100x100'
+//
+//   return `
+//   <li><img src="${track.artwork_url}"><h4>${track.title}</h4></li>
+// <audio controls='controls'src="${track.stream_url}?client_id=?{token}"></audio>
+//
+//
+//
+//   `
+// };
 
 },{"jquery":1}]},{},[2])
 
