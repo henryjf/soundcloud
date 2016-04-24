@@ -1,55 +1,73 @@
 .container {
-  max-width: 350px;
+  max-width: 400px;
   margin: auto;
   font-family: 'Roboto', sans-serif;
   position: relative;
-  background-color: #443241; }
-
-header {
-  padding: 15px;
-  margin: 0 2%;
-  font-size: 40px;
-  border-radius: 5px;
-  font-style: italic;
-  text-align: center;
-  background-color: #c8143e;
-  color: white; }
-
-.search {
-  margin: 10px 2%; }
-  .search .text, .search .button {
-    width: 80%;
-    border-radius: 5px;
-    border: 1px solid  #B3B3B3;
-    padding: 5px; }
-  .search .button {
-    width: 15%;
-    font-size: 13px;
-    text-align: center; }
-
-audio {
-  width: 100%; }
-
-aside {
-  color: white;
-  padding: 2px 5%; }
-
-.artwork {
-  width: 48%;
-  float: left;
   background-color: #443241;
-  color: #DEE1E3;
-  padding: 0 1% 0 1%; }
-  .artwork img {
-    border: 1px solid #B3B3B3; }
-  .artwork img, .artwork span {
-    width: 98%; }
-  .artwork p {
-    font-size: 13px;
-    white-space: nowrap;
-    overflow: hidden;
-    padding: 0 5px 2px 5px;
-    margin: 2px;
-    text-overflow: ellipsis; }
+  padding-top: 5px; }
+  .container header {
+    padding: 15px;
+    margin: 0 1%;
+    font-size: 40px;
+    border-radius: 5px;
+    font-style: italic;
+    text-align: center;
+    background-color: #c8143e;
+    color: white; }
+  .container .search {
+    margin: 10px 2%; }
+    .container .search .text, .container .search .button {
+      width: 80%;
+      border-radius: 5px;
+      border: 1px solid  #B3B3B3;
+      padding: 5px; }
+    .container .search .button {
+      width: 15%;
+      font-size: 13px;
+      text-align: center; }
+  .container audio {
+    width: 100%; }
+  .container aside {
+    color: white;
+    padding: 2px 5%; }
+  .container .artwork {
+    width: 48%;
+    float: left;
+    background-color: #443241;
+    color: #DEE1E3;
+    padding: 0 1% 0 1%; }
+    .container .artwork img {
+      border: 1px solid #B3B3B3; }
+    .container .artwork img, .container .artwork span {
+      width: 98%; }
+    .container .artwork p {
+      font-size: 13px;
+      white-space: nowrap;
+      overflow: hidden;
+      padding: 0 5px 2px 5px;
+      margin: 2px;
+      text-overflow: ellipsis; }
+
+@media screen and (min-width: 500px) {
+  .container {
+    max-width: 800px;
+    top-padding: 15px; }
+    .container header {
+      font-size: 60px; }
+    .container .artwork {
+      width: 31.33%; } }
+
+@media screen and (min-width: 800px) {
+  .container {
+    max-width: 1100px;
+    top-padding: 15px; }
+    .container header {
+      font-size: 80px; }
+    .container .search {
+      margin: 25px 2%; }
+    .container aside {
+      padding: 10px 5%; }
+    .container .artwork {
+      width: 18%; } }
 
 /*# sourceMappingURL=main.css.map */
