@@ -7,16 +7,18 @@ var url = 'https://api.soundcloud.com/tracks/?client_id=' + token + "&limit=15&q
 // var container = $('.container');
 
   var trackTemplate = function (track){
-  return `
-  <audio src="${track.stream_url}/?client_id=${token}" controls="controls"></audio>
+    if (track.artwork_url === null)
+    track.artwork_url = 'http://placehold.it/100x100'
 
-  <div class="albums">
-    <aside>Search results:</aside>
+    // <audio src="${track.stream_url}/?client_id=${token}" controls="controls"></audio>
+  return `
+
+
     <div class="artwork">
       <img src="${track.artwork_url}"alt="" />
-      <span>${track.title}</span>
+      <p>${track.title}</p>
     </div>
-  </div>
+
   `
 };
 $.getJSON(url).then(function (response){

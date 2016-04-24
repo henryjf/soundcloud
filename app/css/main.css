@@ -1,2 +1,46 @@
+.container {
+  max-width: 400px;
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  background-color: #443241; }
+
+header {
+  padding: 15px;
+  font-size: 40px;
+  border: 1px solid red;
+  border-radius: 5px;
+  font-style: italic;
+  text-align: center;
+  background-color: #082277;
+  color: white; }
+
+.search {
+  margin: 10px 0; }
+  .search .text, .search .button {
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid  #B3B3B3;
+    padding: 5px; }
+  .search .button {
+    width: 15%; }
+
+audio {
+  width: 100%; }
+
+.artwork {
+  width: 45%;
+  float: left;
+  background-color: #443241;
+  color: #DEE1E3; }
+  .artwork img {
+    border: 1px solid #B3B3B3; }
+  .artwork img, .artwork p {
+    width: 97%; }
+  .artwork p {
+    font-size: 14px;
+    margin: 0;
+    padding-bottom: 4px;
+    overflow: hidden; }
 
 /*# sourceMappingURL=main.css.map */
