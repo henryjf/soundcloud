@@ -1,5 +1,5 @@
 .container {
-  max-width: 400px;
+  max-width: 350px;
   margin: auto;
   font-family: 'Roboto', sans-serif;
   position: relative;
@@ -7,40 +7,49 @@
 
 header {
   padding: 15px;
+  margin: 0 2%;
   font-size: 40px;
-  border: 1px solid red;
   border-radius: 5px;
   font-style: italic;
   text-align: center;
-  background-color: #082277;
+  background-color: #c8143e;
   color: white; }
 
 .search {
-  margin: 10px 0; }
+  margin: 10px 2%; }
   .search .text, .search .button {
     width: 80%;
     border-radius: 5px;
     border: 1px solid  #B3B3B3;
     padding: 5px; }
   .search .button {
-    width: 15%; }
+    width: 15%;
+    font-size: 13px;
+    text-align: center; }
 
 audio {
   width: 100%; }
 
+aside {
+  color: white;
+  padding: 2px 5%; }
+
 .artwork {
-  width: 45%;
+  width: 48%;
   float: left;
   background-color: #443241;
-  color: #DEE1E3; }
+  color: #DEE1E3;
+  padding: 0 1% 0 1%; }
   .artwork img {
     border: 1px solid #B3B3B3; }
-  .artwork img, .artwork p {
-    width: 97%; }
+  .artwork img, .artwork span {
+    width: 98%; }
   .artwork p {
-    font-size: 14px;
-    margin: 0;
-    padding-bottom: 4px;
-    overflow: hidden; }
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0 5px 2px 5px;
+    margin: 2px;
+    text-overflow: ellipsis; }
 
 /*# sourceMappingURL=main.css.map */

@@ -9861,7 +9861,7 @@ var trackTemplate = function trackTemplate(track) {
   if (track.artwork_url === null) track.artwork_url = 'http://placehold.it/100x100';
 
   // <audio src="${track.stream_url}/?client_id=${token}" controls="controls"></audio>
-  return '\n\n\n    <div class="artwork">\n      <img src="' + track.artwork_url + '"alt="" />\n      <p>' + track.title + '</p>\n    </div>\n\n  ';
+  return '\n\n\n    <div class="artwork">\n      <img src="' + track.artwork_url + '"alt="' + track.title + '" />\n      <p>' + track.title + '</p>\n    </div>\n\n  ';
 };
 _jquery2['default'].getJSON(url).then(function (response) {
   response.forEach(function (track) {

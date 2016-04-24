@@ -15,7 +15,7 @@ var url = 'https://api.soundcloud.com/tracks/?client_id=' + token + "&limit=15&q
 
 
     <div class="artwork">
-      <img src="${track.artwork_url}"alt="" />
+      <img src="${track.artwork_url}"alt="${track.title}" />
       <p>${track.title}</p>
     </div>
 
