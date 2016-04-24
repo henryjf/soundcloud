@@ -1,20 +1,36 @@
 import $ from 'jquery';
 
 var token = 'ca1d7249459344a30f833b3bc59fc9ba';
-// var url = 'https://api.soundcloud.com/tracks?client_id=' + token + "&limit=15&q=beatles";
-var url = 'https://api.soundcloud.com/tracks?client_id=ca1d7249459344a30f833b3bc59fc9ba&limit=15&q=beatles';
+var url = 'https://api.soundcloud.com/tracks/?client_id=' + token + "&limit=15&q=springsteen";
+// var url = 'https://api.soundcloud.com/tracks/?client_id=ca1d7249459344a30f833b3bc59fc9ba&limit=15&q=beatles';
 
-var container = $('.container');
+// var container = $('.container');
 
+  var trackTemplate = function (track){
+  return `
+  <audio src="${track.stream_url}/?client_id=${token}" controls="controls"></audio>
+
+  <div class="albums">
+    <aside>Search results:</aside>
+    <div class="artwork">
+      <img src="${track.artwork_url}"alt="" />
+      <span>${track.title}</span>
+    </div>
+  </div>
+  `
+};
 $.getJSON(url).then(function (response){
   response.forEach(function(track){
+    var html = trackTemplate(track);
+    $('.container').append(html);
+  });
+  console.log(response);
+});
+
 
     // var htmlBlock = trackTemplate(track);
     //
     // $('.container').append(htmlBlock);
-  })
-  console.log(response);
-});
 
 // function trackTemplate(track) {
 //
@@ -28,4 +44,4 @@ $.getJSON(url).then(function (response){
 //
 //
 //   `
-// };
+ // };
