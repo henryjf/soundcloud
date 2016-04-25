@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 var token = 'ca1d7249459344a30f833b3bc59fc9ba';
-var url = 'https://api.soundcloud.com/tracks/?client_id=' + token + "&limit=15";
+var url = 'https://api.soundcloud.com/tracks/?client_id=' + token + "&limit=15q=";
 
 // Creating an expression to display artwork if available, otherwise display blank placeholdit
   var trackTemplate = function (track){
