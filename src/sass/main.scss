@@ -42,33 +42,25 @@ aside {
   padding: 2px 5%;
 }
 .artwork{
-  // border: 1px solid red;
   width: 48%;
   float: left;
   background-color: #443241;
   color: #DEE1E3;
   padding: 0 1% 0 1%;
 
-
-
   img {
-    // padding-top: 5%;
     border: 1px solid #B3B3B3;
   }
-  img, span{
+  img, p{
     width: 98%;
-    // padding: 1%;
-    // padding-left: 5%;
-
   }
   p{
     font-size: 13px;
     white-space: nowrap;
-     overflow: hidden;
+    overflow: hidden;
     padding: 0 5px 2px 5px;
     margin: 2px ;
     text-overflow: ellipsis;
-    // overflow: auto;
   }
 }
 }
@@ -95,14 +87,15 @@ aside {
   header {
     font-size: 80px;
   }
+  
   .search {
     margin: 25px 2%;
   }
 
   aside {
     padding: 10px 5%;
-
   }
+
   .artwork {
     width: 18%;
   }

@@ -9852,17 +9852,17 @@ var _jquery = require('jquery');
 var _jquery2 = _interopRequireDefault(_jquery);
 
 var token = 'ca1d7249459344a30f833b3bc59fc9ba';
-var url = 'https://api.soundcloud.com/tracks/?client_id=' + token + "&limit=15&q=springsteen";
-// var url = 'https://api.soundcloud.com/tracks/?client_id=ca1d7249459344a30f833b3bc59fc9ba&limit=15&q=beatles';
+var url = 'https://api.soundcloud.com/tracks/?client_id=' + token + "&limit=15";
 
-// var container = $('.container');
-
+// Creating an expression to display artwork if available, otherwise display blank placeholdit
 var trackTemplate = function trackTemplate(track) {
   if (track.artwork_url === null) track.artwork_url = 'http://placehold.it/100x100';
 
-  // <audio src="${track.stream_url}/?client_id=${token}" controls="controls"></audio>
-  return '\n\n\n    <div class="artwork">\n      <img src="' + track.artwork_url + '"alt="' + track.title + '" />\n      <p>' + track.title + '</p>\n    </div>\n\n  ';
+  //Converting html to js via template to pull in artwork and title
+  return '\n    <div class="artwork">\n      <img src="' + track.artwork_url + '"alt="' + track.title + '" />\n      <p>' + track.title + '</p>\n    </div>\n     ';
 };
+
+// Using JSON/promise to return responses until the designated number is reached
 _jquery2['default'].getJSON(url).then(function (response) {
   response.forEach(function (track) {
     var html = trackTemplate(track);
@@ -9870,24 +9870,6 @@ _jquery2['default'].getJSON(url).then(function (response) {
   });
   console.log(response);
 });
-
-// var htmlBlock = trackTemplate(track);
-//
-// $('.container').append(htmlBlock);
-
-// function trackTemplate(track) {
-//
-//   if (track.artwork_url=== null)
-//     track.artwork_url = 'http://placehold.it/100x100'
-//
-//   return `
-//   <li><img src="${track.artwork_url}"><h4>${track.title}</h4></li>
-// <audio controls='controls'src="${track.stream_url}?client_id=?{token}"></audio>
-//
-//
-//
-//   `
-// };
 
 },{"jquery":1}]},{},[2])
 

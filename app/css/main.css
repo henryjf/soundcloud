@@ -38,7 +38,7 @@
     padding: 0 1% 0 1%; }
     .container .artwork img {
       border: 1px solid #B3B3B3; }
-    .container .artwork img, .container .artwork span {
+    .container .artwork img, .container .artwork p {
       width: 98%; }
     .container .artwork p {
       font-size: 13px;
