@@ -9851,25 +9851,45 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+// var btn = document.querySelector('.button')
+var jbtn = (0, _jquery2['default'])('.button');
+var form = (0, _jquery2['default'])('.searchbox');
+var search = (0, _jquery2['default'])('.text');
+var albums = (0, _jquery2['default'])('.albums');
+
+form.on('submit', function (event) {
+  event.preventDefault();
+
+  var searchTerm = search.val();
+  console.log(searchTerm);
+
+  albums.empty();
+
+  // Using JSON/promise to return responses until the designated number is reached
+  _jquery2['default'].getJSON(url + searchTerm).then(function (response) {
+    response.forEach(function (track) {
+      var html = trackTemplate(track);
+      albums.append(html);
+    });
+    console.log(response);
+  });
+});
+
+albums.on('click', '.artwork', function (event) {
+  event.preventDefault();
+  console.log((0, _jquery2['default'])(this).find('span').text());
+});
+
 var token = 'ca1d7249459344a30f833b3bc59fc9ba';
-var url = 'https://api.soundcloud.com/tracks/?client_id=' + token + "&limit=15";
+var url = 'https://api.soundcloud.com/tracks/?client_id=' + token + "&limit=15&q=";
 
 // Creating an expression to display artwork if available, otherwise display blank placeholdit
 var trackTemplate = function trackTemplate(track) {
   if (track.artwork_url === null) track.artwork_url = 'http://placehold.it/100x100';
 
   //Converting html to js via template to pull in artwork and title
-  return '\n    <div class="artwork">\n      <img src="' + track.artwork_url + '"alt="' + track.title + '" />\n      <p>' + track.title + '</p>\n    </div>\n     ';
+  return '\n    <div class="artwork">\n      <img src="' + track.artwork_url + '"alt="' + track.title + '" />\n      <p>' + track.title + '</p>\n      <span>' + track.title + '</span>\n    </div>\n     ';
 };
-
-// Using JSON/promise to return responses until the designated number is reached
-_jquery2['default'].getJSON(url).then(function (response) {
-  response.forEach(function (track) {
-    var html = trackTemplate(track);
-    (0, _jquery2['default'])('.container').append(html);
-  });
-  console.log(response);
-});
 
 },{"jquery":1}]},{},[2])
 
