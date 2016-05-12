@@ -20,7 +20,7 @@ form.on('submit', function(event){
       var html = trackTemplate(track);
       albums.append(html);
     });
-    console.log(response);
+    // console.log(response);
   });
 
 
