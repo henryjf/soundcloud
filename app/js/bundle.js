@@ -9856,39 +9856,40 @@ var jbtn = (0, _jquery2['default'])('.button');
 var form = (0, _jquery2['default'])('.searchbox');
 var search = (0, _jquery2['default'])('.text');
 var albums = (0, _jquery2['default'])('.albums');
+var song;
+
+var token = 'd852a0ec23f62dadd3e6ed6411a8a8dc';
+var url = 'https://api.soundcloud.com/';
 
 form.on('submit', function (event) {
   event.preventDefault();
-
   var searchTerm = search.val();
-  console.log(searchTerm);
-
   albums.empty();
 
   // Using JSON/promise to return responses until the designated number is reached
-  _jquery2['default'].getJSON(url + searchTerm).then(function (response) {
+  _jquery2['default'].getJSON(url + 'tracks/?client_id=' + token + '&q=' + searchTerm).then(function (response) {
     response.forEach(function (track) {
       var html = trackTemplate(track);
       albums.append(html);
     });
     // console.log(response);
   });
+  albums.on('click', '.artwork', function (event) {
+    event.preventDefault();
+    song = (0, _jquery2['default'])(this).find('.stream_url').text() + '?client_id=' + token;
+    console.log(song);
+    (0, _jquery2['default'])('audio').attr('src', song);
+    //console.log($(this).find('span').text());
+  });
 });
-
-albums.on('click', '.artwork', function (event) {
-  event.preventDefault();
-  console.log((0, _jquery2['default'])(this).find('span').text());
-});
-
-var token = 'ca1d7249459344a30f833b3bc59fc9ba';
-var url = 'https://api.soundcloud.com/tracks/?client_id=' + token + "&limit=15&q=";
 
 // Creating an expression to display artwork if available, otherwise display blank placeholdit
 var trackTemplate = function trackTemplate(track) {
-  if (track.artwork_url === null) track.artwork_url = 'http://placehold.it/100x100';
-
+  if (track.artwork_url === null) {
+    track.artwork_url = 'http://placehold.it/100x100';
+  }
   //Converting html to js via template to pull in artwork and title
-  return '\n    <div class="artwork">\n      <img src="' + track.artwork_url + '"alt="' + track.title + '" />\n      <p>' + track.title + '</p>\n      <span>' + track.title + '</span>\n    </div>\n     ';
+  return '\n    <div class="artwork">\n      <span class="stream_url">' + track.stream_url + '</span>\n      <img src="' + track.artwork_url + '"alt="' + track.title + '" />\n      <p>' + track.title + '</p>\n      <span>' + track.title + '</span>\n    </div>\n     ';
 };
 
 },{"jquery":1}]},{},[2])

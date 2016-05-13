@@ -5,44 +5,43 @@ var jbtn = $('.button');
 var form =$('.searchbox')
 var search = $('.text');
 var albums = $('.albums');
+var song;
+
+var token = 'd852a0ec23f62dadd3e6ed6411a8a8dc';
+var url = 'https://api.soundcloud.com/' ;
 
 form.on('submit', function(event){
   event.preventDefault();
-
   var searchTerm = search.val()
-  console.log(searchTerm);
-
   albums.empty();
 
   // Using JSON/promise to return responses until the designated number is reached
-  $.getJSON(url + searchTerm).then(function (response){
+  $.getJSON(url + 'tracks/?client_id='+ token + '&q=' + searchTerm).then(function (response){
     response.forEach(function(track){
       var html = trackTemplate(track);
       albums.append(html);
     });
     // console.log(response);
   });
-
+  albums.on('click', '.artwork', function (event) {
+    event.preventDefault();
+    song = $(this).find('.stream_url').text()+ '?client_id=' + token ;
+    console.log(song);
+    $('audio').attr('src', song);
+    //console.log($(this).find('span').text());
+  });
 
 });
-
-albums.on('click', '.artwork', function (event) {
-  event.preventDefault();
-  console.log($(this).find('span').text());
-});
-
-
-var token = 'ca1d7249459344a30f833b3bc59fc9ba';
-var url = 'https://api.soundcloud.com/tracks/?client_id=' + token + "&limit=15&q=";
 
 // Creating an expression to display artwork if available, otherwise display blank placeholdit
   var trackTemplate = function (track){
-    if (track.artwork_url === null)
-    track.artwork_url = 'http://placehold.it/100x100'
-
+    if (track.artwork_url === null){
+      track.artwork_url = 'http://placehold.it/100x100';
+    }
 //Converting html to js via template to pull in artwork and title
   return `
     <div class="artwork">
+      <span class="stream_url">${track.stream_url}</span>
       <img src="${track.artwork_url}"alt="${track.title}" />
       <p>${track.title}</p>
       <span>${track.title}</span>
