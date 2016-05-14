@@ -5,10 +5,9 @@ var jbtn = $('.button');
 var form =$('.searchbox')
 var search = $('.text');
 var albums = $('.albums');
-var song;
-
 var token = 'd852a0ec23f62dadd3e6ed6411a8a8dc';
 var url = 'https://api.soundcloud.com/' ;
+
 
 form.on('submit', function(event){
   event.preventDefault();
@@ -25,7 +24,7 @@ form.on('submit', function(event){
   });
   albums.on('click', '.artwork', function (event) {
     event.preventDefault();
-    song = $(this).find('.stream_url').text()+ '?client_id=' + token ;
+    var song = $(this).find('.stream_url').text()+ '?client_id=' + token ;
     console.log(song);
     $('audio').attr('src', song);
     //console.log($(this).find('span').text());

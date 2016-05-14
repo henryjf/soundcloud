@@ -9856,8 +9856,6 @@ var jbtn = (0, _jquery2['default'])('.button');
 var form = (0, _jquery2['default'])('.searchbox');
 var search = (0, _jquery2['default'])('.text');
 var albums = (0, _jquery2['default'])('.albums');
-var song;
-
 var token = 'd852a0ec23f62dadd3e6ed6411a8a8dc';
 var url = 'https://api.soundcloud.com/';
 
@@ -9876,7 +9874,7 @@ form.on('submit', function (event) {
   });
   albums.on('click', '.artwork', function (event) {
     event.preventDefault();
-    song = (0, _jquery2['default'])(this).find('.stream_url').text() + '?client_id=' + token;
+    var song = (0, _jquery2['default'])(this).find('.stream_url').text() + '?client_id=' + token;
     console.log(song);
     (0, _jquery2['default'])('audio').attr('src', song);
     //console.log($(this).find('span').text());
